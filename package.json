@@ -1,0 +1,52 @@
+{
+  "name": "sefetious",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter=\"./apps/*\" dev",
+    "dev:api": "bun --cwd apps/api dev",
+    "dev:web": "bun --cwd apps/web dev",
+    "dev:mobile": "bun --cwd apps/mobile start",
+    "build": "bun run --filter=\"./apps/*\" build",
+    "build:api": "bun --cwd apps/api build",
+    "build:web": "bun --cwd apps/web build",
+    "lint": "bun run --filter=\"./apps/*\" lint",
+    "lint:fix": "bun run --filter=\"./apps/*\" lint:fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:apps": "bun run --filter=\"./apps/*\" format",
+    "format:apps:check": "bun run --filter=\"./apps/*\" format:check",
+    "type-check": "bun run --filter=\"./apps/*\" type-check",
+    "quality": "bun run format:check && bun run lint && bun run type-check",
+    "quality:fix": "bun run format && bun run lint:fix",
+    "db:setup": "bun --cwd apps/api db:setup",
+    "db:migrate": "bun --cwd apps/api db:migrate",
+    "cli:build": "cd tools/cli && cargo build --release",
+    "cli:install": "cd tools/cli && cargo install --path .",
+    "clean": "bun run --filter=\"./apps/*\" clean && rm -rf node_modules",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
+    "prettier": "^3.6.2",
+    "turbo": "^1.13.0",
+    "typescript": "^5.9.2"
+  }
+}

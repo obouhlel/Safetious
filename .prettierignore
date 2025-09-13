@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+*.lcov
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
+# Mobile specific
+android/
+ios/
+.expo/
+.expo-shared/
+
+# Rust/CLI tools
+target/
+*.rs
+
+# Generated files
+*.min.js
+*.min.css
