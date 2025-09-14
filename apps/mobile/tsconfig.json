@@ -1,26 +1,36 @@
 {
-  "extends": ["../../tsconfig.json", "expo/tsconfig.base"],
   "compilerOptions": {
-    // Mobile-specific overrides
-    "lib": ["ESNext"],
+    // Base TypeScript configuration
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
     "jsx": "react-native",
-    "types": ["react-native"],
+    "allowJs": true,
 
-    // React Native optimizations
+    // Module resolution for React Native & Expo
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
 
-    // Enhanced strictness for mobile app
+    // Type checking
     "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+
+    // React Native specific
+    "types": ["react-native", "expo", "node"],
+    "verbatimModuleSyntax": false,
 
     // Path mapping for cleaner imports
     "baseUrl": ".",
@@ -35,6 +45,13 @@
       "@/services/*": ["./src/services/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "android",
+    "ios",
+    "web-build"
+  ]
 }
