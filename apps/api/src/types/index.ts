@@ -12,3 +12,15 @@ export interface ApiResponse<T = unknown> {
   message?: string;
   errors?: string[];
 }
+
+export interface ApiSuccessResponse<T = unknown> {
+  success: true;
+  data?: T;
+  message?: string;
+}
+
+export interface ApiErrorResponse {
+  success: false;
+  message: string;
+  errors?: string[];
+}

@@ -1,29 +1,39 @@
-import type { ApiResponse } from '@/types';
+import type { ApiErrorResponse, ApiSuccessResponse } from '@/types';
 
 export abstract class BaseService {
   protected createSuccessResponse<T>(
     data: T,
     message?: string
-  ): ApiResponse<T> {
-    return {
+  ): ApiSuccessResponse<T> {
+    const response: ApiSuccessResponse<T> = {
       success: true,
       data,
-      message,
     };
+
+    if (message) {
+      response.message = message;
+    }
+
+    return response;
   }
 
   protected createErrorResponse(
     message: string,
     errors?: string[]
-  ): ApiResponse {
-    return {
+  ): ApiErrorResponse {
+    const response: ApiErrorResponse = {
       success: false,
       message,
-      errors,
     };
+
+    if (errors) {
+      response.errors = errors;
+    }
+
+    return response;
   }
 
-  protected handleError(error: unknown): ApiResponse {
+  protected handleError(error: unknown): ApiErrorResponse {
     console.error('Service error:', error);
 
     if (error instanceof Error) {
