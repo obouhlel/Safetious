@@ -8,12 +8,12 @@
     "moduleResolution": "bundler",
     "types": ["bun-types", "node"],
 
-    // Output configuration
-    "outDir": "./dist",
-    "rootDir": ".",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    // Output configuration (disabled - Bun handles compilation)
+    // "outDir": "./dist",
+    // "rootDir": ".",
+    // "declaration": true,
+    // "declarationMap": true,
+    // "sourceMap": true,
 
     // Path mapping (if needed)
     "baseUrl": ".",
@@ -24,7 +24,7 @@
     // Bun-specific settings
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
-    "noEmit": false,
+    "noEmit": true,
 
     // API-specific strictness
     "strict": true,
