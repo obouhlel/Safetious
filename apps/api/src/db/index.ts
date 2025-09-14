@@ -1,10 +1,10 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
+import { env } from '@/config/env';
+
 // Database connection
-const connectionString =
-  process.env.DATABASE_URL ||
-  'postgresql://postgres:postgres@localhost:5432/safetious';
+const connectionString = env.DATABASE_URL;
 
 // For migrations
 export const migrationClient = postgres(connectionString, { max: 1 });
