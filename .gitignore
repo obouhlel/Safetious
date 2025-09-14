@@ -98,3 +98,6 @@ web-build/
 # Temporary files
 tmp/
 temp/
+
+# Rust
+tools/cli/target
